@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.alpha.vps.DataTransfer.BatteryListResponse;
 import com.alpha.vps.entity.Battery;
 import com.alpha.vps.entity.BatteryResponse;
 import com.alpha.vps.entity.BatteryStatistics;
@@ -38,5 +39,9 @@ public class BatteryController {
         );
 
         return ResponseEntity.ok(response);
+    }
+    @GetMapping
+    public ResponseEntity<BatteryListResponse> getAllBatteries() {
+        return ResponseEntity.ok(batteryService.getAllBatteries());
     }
 }
